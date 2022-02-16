@@ -13,6 +13,22 @@ const App = () => {
 
   const [ list, setList ] = useState<Item[]>([]);
 
+  // Função para adicionar uma nova tarefa em nossa lista
+
+  const handleAddTask = ( taskName: string ) => {
+    setLoading(true);
+    setTimeout(() => {
+      let newList = [...list];
+      newList.push({
+        id: list.length + 1,
+        name: taskName,
+        done: false,
+      });
+      setLoading(false);
+      setList(newList);
+    },1000);
+  }
+
   // Remove alguma tarefa adicionada em nossa lista
 
   const handleDeleteTask = ( id: number ) => {
