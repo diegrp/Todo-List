@@ -13,6 +13,16 @@ const App = () => {
 
   const [ list, setList ] = useState<Item[]>([]);
 
+  // Remove alguma tarefa adicionada em nossa lista
+
+  const handleDeleteTask = ( id: number ) => {
+    setLoading(true);
+    setTimeout(() => {
+      setList(list.filter((item) => item.id !== id));
+      setLoading(false);
+    },1000);
+  }
+
   return (
     <C.Container>
       <C.Wrapper>
