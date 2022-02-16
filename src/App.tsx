@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as C from "./App.styles";
 import { Item } from "./types/Item";
 import AddArea from "./Components/AddArea";
@@ -39,6 +39,19 @@ const App = () => {
       setLoading(false);
     },1000);
   }
+
+  // Salva qualquer alteração em nossa lista no localStorage
+
+  useEffect(() => {
+    let savedLists = JSON.parse(window.localStorage.getItem('react-list-item') || "");
+    if(savedLists){
+      setList(savedLists);
+    }
+  },[]);
+
+  useEffect(() => {
+    window.localStorage.setItem('react-list-item', JSON.stringify(list));
+  },[list]);
 
   return (
     <C.Container>
