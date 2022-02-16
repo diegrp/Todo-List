@@ -9,6 +9,7 @@ type Props = {
 export const ListItem = ( { item, onDelete }: Props ) => {
 
   const [ isChecked, setIsChecked ] = useState(item.done);
+  const [ checkDelete, setCheckDelete ] = useState(false);
 
   return(
     <C.Container>
@@ -19,7 +20,10 @@ export const ListItem = ( { item, onDelete }: Props ) => {
         onChange={({target}) => setIsChecked(target.checked)}
       />
       <label htmlFor={item.name} >{item.name}</label>
-      <button>X</button>
+      <button onClick={() => {
+        onDelete(item.id);
+        setCheckDelete(true);
+      }}>X</button>
     </C.Container>
   )
 }
