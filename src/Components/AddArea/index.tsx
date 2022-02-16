@@ -1,4 +1,5 @@
 import { useState, KeyboardEvent } from "react";
+import * as C from "./styles";
 
 type Props = {
   onEnter: (taskName: string) => void;
@@ -27,7 +28,7 @@ const AddArea = ( { onEnter }: Props ) => {
   }
 
   return (
-    <C.Container>
+    <C.Container wait={inputWait}>
       <div className="image">➕</div>
       <input
         type="text"
