@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as C from "./App.styles";
 import { Item } from "./types/Item";
+import AddArea from "./Components/AddArea";
 import { ListItem } from "./Components/ListItem";
 
 // Render App final
@@ -44,6 +45,10 @@ const App = () => {
       <C.Wrapper>
 
         <C.Heading>Lista de Tarefas</C.Heading>
+
+        {/* Componente para adicionar uma nova tarefa em nossa lista */}
+
+        <AddArea onEnter={handleAddTask} />
 
         {/* Mapeamento da listagem de nossas tarefas, através de um componente */}
 
